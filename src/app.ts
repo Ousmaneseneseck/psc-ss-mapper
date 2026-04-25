@@ -25,13 +25,11 @@ app.use(cors());
 app.use(compression());
 app.use(express.json());
 
-// Logger middleware
 app.use((req, res, next) => {
-    logger.info(\ \);
+    logger.info(`${req.method} ${req.path}`);
     next();
 });
 
-// Routes
 app.get('/health', (req, res) => {
     res.json({
         status: 'healthy',
@@ -41,22 +39,16 @@ app.get('/health', (req, res) => {
     });
 });
 
-// Routes principales
-app.post('/api/v1//segment/agent - Segmentation d'un agent', (req, res) => {     res.json({ message: 'Endpoint ss-mapper - À implémenter' }); }); app.post('/api/v1//segment/batch - Segmentation par lots', (req, res) => {     res.json({ message: 'Endpoint ss-mapper - À implémenter' }); }); app.get('/api/v1//segment/:id   - Récupérer segmentation', (req, res) => {     res.json({ message: 'Endpoint ss-mapper - À implémenter' }); }); app.get('/api/v1//report/segmentation - Rapport global', (req, res) => {     res.json({ message: 'Endpoint ss-mapper - À implémenter' }); });
-
-// 404 handler
-app.use((req, res) => {
-    res.status(404).json({ error: 'Route non trouvée' });
+app.get('/', (req, res) => {
+    res.json({
+        name: 'SS-Mapper API',
+        version: '1.0.0',
+        endpoints: ['/health']
+    });
 });
 
 app.listen(PORT, () => {
-    console.log(
-╔════════════════════════════════════════════════╗
-║  🚀 SS-Mapper API - PSC Sovereign           ║
-║  📡 Port: 3001                                  ║
-║  🏷️  Description: Cartographie intelligente des acteurs économiques║
-╚════════════════════════════════════════════════╝
-    );
+    console.log("SS-Mapper API demarree sur http://localhost:" + PORT);
 });
 
 export default app;
