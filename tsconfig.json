@@ -18,10 +18,9 @@
     "noUnusedParameters": false,
     "noImplicitReturns": false,
     "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "node",
-    "types": ["node"],
-    "typeRoots": ["./node_modules/@types"]
+    "moduleResolution": "node10",
+    "types": []
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "**/*.test.ts", "tests"]
+  "exclude": ["node_modules", "dist"]
 }
