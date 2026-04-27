@@ -48,4 +48,3 @@ app.listen(PORT, () => {
     console.log("SS-Mapper API demarree sur http://localhost:" + PORT);
 });
 exports.default = app;
-//# sourceMappingURL=app.js.map
